@@ -1,5 +1,6 @@
 package com.nhoang.algosimulation.ui.model
 
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.nhoang.algosimulation.domain.usecase.AlgorithmUseCaseInterface
@@ -13,8 +14,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 class AlgorithmViewModel @AssistedInject constructor(
     @Assisted val id: Int
 ) : ViewModel() {
-    private val _inputFieldInput = mutableStateOf("")
-    val inputFieldInput = _inputFieldInput
+    private val _arrayInputFieldInput = mutableStateOf("")
+    private val _targetInputFieldInput = mutableIntStateOf(0)
+    private val _result = mutableIntStateOf(-1)
+
+    val arrayInputFieldInput = _arrayInputFieldInput
+    val targetInputFieldInput = _targetInputFieldInput
+    val result = _result
 
     private val _algorithmUseCaseInterface = getAlgorithmViewModel(id)
 
@@ -24,11 +30,18 @@ class AlgorithmViewModel @AssistedInject constructor(
     }
 
     fun execute() {
-        _algorithmUseCaseInterface.execute(intArrayOf())
+        result.value = _algorithmUseCaseInterface.execute(
+            _arrayInputFieldInput.value.split(",").map { it.trim().toInt() }.toIntArray(),
+            _targetInputFieldInput.intValue
+        )
     }
 
-    fun getInputLabel(): String {
-        return _algorithmUseCaseInterface.getInputLabel()
+    fun getPrimaryInputLabel(): String {
+        return _algorithmUseCaseInterface.getPrimaryInputLabel()
+    }
+
+    fun getSecondaryInputLabel(): String {
+        return _algorithmUseCaseInterface.getSecondaryInputLabel()
     }
 
     private fun getAlgorithmViewModel(id: Int): AlgorithmUseCaseInterface {

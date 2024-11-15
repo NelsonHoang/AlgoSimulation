@@ -1,7 +1,9 @@
 package com.nhoang.algosimulation.domain.usecase
 
 interface AlgorithmUseCaseInterface {
-    fun execute(array : IntArray) : Int
+    fun execute(array : IntArray, target : Int) : Int
 
-    fun getInputLabel() : String
+    fun getPrimaryInputLabel() : String
+
+    fun getSecondaryInputLabel() : String
 }

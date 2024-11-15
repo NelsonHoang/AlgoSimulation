@@ -1,5 +1,6 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Algo Simulation</string>
 
+    <string name="result_text">Result: <xliff:g id="result_value">%1$d</xliff:g></string>
     <string name="execute_button">Execute</string>
 </resources>
