@@ -11,6 +11,7 @@ composeBom = "2024.04.01"
 hilt = "2.49"
 hiltcompiler = "1.2.0"
 hiltnavigation = "1.2.0"
+room = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,6 +33,9 @@ hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt
 hiltcompiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltcompiler" }
 hiltnavigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltnavigation" }
 kapt = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+
+room = {group = "androidx.room", name="room-compiler", version.ref="room"}
+roomcompiler = {group = "androidx.room", name="room-ktx", version.ref="room"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

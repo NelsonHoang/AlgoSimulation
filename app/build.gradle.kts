@@ -63,6 +63,10 @@ dependencies {
     kapt(libs.kapt)
     kapt(libs.hiltcompiler)
     implementation(libs.hiltnavigation)
+
+    // Room
+    kapt(libs.room)
+    implementation(libs.roomcompiler)
 }
 
 kapt {
