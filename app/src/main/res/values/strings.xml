@@ -3,4 +3,8 @@
 
     <string name="result_text">Result: <xliff:g id="result_value">%1$d</xliff:g></string>
     <string name="execute_button">Execute</string>
+
+    <string name="array_text_edit_label">Enter Array</string>
+
+    <string name="sa_sum_equal_k_secondary_label">Enter Target Sum</string>
 </resources>

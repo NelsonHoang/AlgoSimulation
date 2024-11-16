@@ -1,5 +1,8 @@
 package com.nhoang.algosimulation.domain.usecase
 
+import android.content.Context
+import com.nhoang.algosimulation.R
+
 class SASumEqualsKUseCase : AlgorithmUseCaseInterface{
 
     override fun execute(array: IntArray, target : Int): Int {
@@ -19,11 +22,11 @@ class SASumEqualsKUseCase : AlgorithmUseCaseInterface{
         return count
     }
 
-    override fun getPrimaryInputLabel(): String {
-        return "Enter Array"
+    override fun getPrimaryInputLabel(context: Context): String {
+        return context.getString(R.string.array_text_edit_label)
     }
 
-    override fun getSecondaryInputLabel(): String {
-        return "Enter Target Sum"
+    override fun getSecondaryInputLabel(context: Context): String {
+        return context.getString(R.string.sa_sum_equal_k_secondary_label)
     }
 }

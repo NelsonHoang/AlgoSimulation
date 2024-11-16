@@ -1,5 +1,6 @@
 package com.nhoang.algosimulation.ui.model
 
+import android.content.Context
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -30,18 +31,18 @@ class AlgorithmViewModel @AssistedInject constructor(
     }
 
     fun execute() {
-        result.value = _algorithmUseCaseInterface.execute(
+        result.intValue = _algorithmUseCaseInterface.execute(
             _arrayInputFieldInput.value.split(",").map { it.trim().toInt() }.toIntArray(),
             _targetInputFieldInput.intValue
         )
     }
 
-    fun getPrimaryInputLabel(): String {
-        return _algorithmUseCaseInterface.getPrimaryInputLabel()
+    fun getPrimaryInputLabel(context: Context): String {
+        return _algorithmUseCaseInterface.getPrimaryInputLabel(context)
     }
 
-    fun getSecondaryInputLabel(): String {
-        return _algorithmUseCaseInterface.getSecondaryInputLabel()
+    fun getSecondaryInputLabel(context: Context): String {
+        return _algorithmUseCaseInterface.getSecondaryInputLabel(context)
     }
 
     private fun getAlgorithmViewModel(id: Int): AlgorithmUseCaseInterface {

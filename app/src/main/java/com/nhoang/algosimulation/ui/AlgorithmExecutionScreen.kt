@@ -13,6 +13,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -42,7 +43,7 @@ fun AlgorithmExecutionScreen() {
             modifier = Modifier.padding(8.dp),
             value = algorithmViewModel.arrayInputFieldInput.value,
             onValueChange = { algorithmViewModel.arrayInputFieldInput.value = it },
-            label = { Text(algorithmViewModel.getPrimaryInputLabel()) },
+            label = { Text(algorithmViewModel.getPrimaryInputLabel(LocalContext.current)) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
         TextField(
@@ -52,7 +53,7 @@ fun AlgorithmExecutionScreen() {
                 algorithmViewModel.targetInputFieldInput.intValue =
                     if (it.isEmpty()) 0 else it.toInt()
             },
-            label = { Text(algorithmViewModel.getSecondaryInputLabel()) },
+            label = { Text(algorithmViewModel.getSecondaryInputLabel(LocalContext.current)) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
         val result = algorithmViewModel.result
