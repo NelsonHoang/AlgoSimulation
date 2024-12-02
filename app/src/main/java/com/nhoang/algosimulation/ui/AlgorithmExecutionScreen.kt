@@ -65,11 +65,12 @@ fun AlgorithmExecutionScreen() {
             fontSize = 20.sp
         )
         Spacer(modifier = Modifier.weight(1f))
-        TextButton(onClick = {
-            algorithmViewModel.viewModelScope.launch(Dispatchers.IO) {
-                algorithmViewModel.execute()
-            }
-        }) {
+        TextButton(modifier = Modifier.background(Color.Gray),
+            onClick = {
+                algorithmViewModel.viewModelScope.launch(Dispatchers.IO) {
+                    algorithmViewModel.execute()
+                }
+            }) {
             Text(stringResource(R.string.execute_button))
         }
     }
