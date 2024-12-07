@@ -1,11 +1,12 @@
-package com.nhoang.algosimulation.domain.usecase
+package com.nhoang.algosimulation.domain.executor.implementation
 
 import android.content.Context
 import com.nhoang.algosimulation.R
+import com.nhoang.algosimulation.domain.executor.AlgorithmExecutor
 
-class SASumEqualsKUseCase : AlgorithmUseCaseInterface{
+class SubArraySumEqualsKExecutor : AlgorithmExecutor {
 
-    override fun execute(array: IntArray, target : Int): Int {
+    override fun execute(array: IntArray, target: Int): Int {
         var count = 0
         var sum = 0
 

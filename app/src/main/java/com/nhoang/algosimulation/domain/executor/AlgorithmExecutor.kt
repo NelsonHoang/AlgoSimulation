@@ -1,8 +1,8 @@
-package com.nhoang.algosimulation.domain.usecase
+package com.nhoang.algosimulation.domain.executor
 
 import android.content.Context
 
-interface AlgorithmUseCaseInterface {
+interface AlgorithmExecutor {
     fun execute(array : IntArray, target : Int) : Int
 
     fun getPrimaryInputLabel(context: Context): String

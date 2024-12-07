@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.nhoang.algosimulation.domain.usecase.AlgorithmUseCaseInterface
-import com.nhoang.algosimulation.domain.usecase.SASumEqualsKUseCase
+import com.nhoang.algosimulation.domain.executor.AlgorithmExecutor
+import com.nhoang.algosimulation.domain.executor.implementation.SubArraySumEqualsKExecutor
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -45,10 +45,10 @@ class AlgorithmViewModel @AssistedInject constructor(
         return _algorithmUseCaseInterface.getSecondaryInputLabel(context)
     }
 
-    private fun getAlgorithmViewModel(id: Int): AlgorithmUseCaseInterface {
+    private fun getAlgorithmViewModel(id: Int): AlgorithmExecutor {
         when (id) {
-            0 -> return SASumEqualsKUseCase()
+            0 -> return SubArraySumEqualsKExecutor()
         }
-        return SASumEqualsKUseCase()
+        return SubArraySumEqualsKExecutor()
     }
 }
