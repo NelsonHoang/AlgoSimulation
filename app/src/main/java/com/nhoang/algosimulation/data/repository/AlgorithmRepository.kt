@@ -37,6 +37,10 @@ class AlgorithmRepository @Inject constructor() {
         )
     )
 
+    fun getCategories() : Flow<List<Category>> = flow {
+        emit(categories)
+    }
+
     fun getProblemsByCategory(categoryId: String): Flow<List<Problem>> = flow {
         emit(problems.values.filter { it.categoryId == categoryId })
     }

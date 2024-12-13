@@ -1,6 +1,5 @@
-package com.nhoang.algosimulation.ui.problems
+package com.nhoang.algosimulation.ui.home
 
-import android.content.Intent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,17 +13,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.nhoang.algosimulation.AlgorithmExecutionActivity
-import com.nhoang.algosimulation.data.repository.AlgorithmRepository
+import androidx.navigation.NavController
+import com.nhoang.algosimulation.navigation.Screen
 
 @Composable
-fun ProblemSelectorScreen(
-    problemSelectorViewModel: ProblemSelectorViewModel
-) {
-    val problems by problemSelectorViewModel.getArrayProblems()
+fun HomeScreen(homeViewModel: HomeViewModel, navController: NavController) {
+    val categories by homeViewModel.getCategories()
         .collectAsState(initial = emptyList())
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -32,26 +27,17 @@ fun ProblemSelectorScreen(
         verticalArrangement = Arrangement.Center
     ) {
         items(
-            problems.size
-        ) { problemIndex ->
-            val context = LocalContext.current
+            categories.size
+        ) { categoriesIndex ->
             OutlinedButton(
                 onClick = {
-                    context.startActivity(Intent(context, AlgorithmExecutionActivity::class.java))
+                    navController.navigate(route = Screen.Problems.route)
                 },
                 border = BorderStroke(1.dp, Color.LightGray),
                 shape = RoundedCornerShape(50)
             ) {
-                Text(problems[problemIndex].title)
+                Text(categories[categoriesIndex].name)
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun ProblemSelectorScreenPreview() {
-    ProblemSelectorScreen(
-        ProblemSelectorViewModel(AlgorithmRepository())
-    )
 }
