@@ -52,6 +52,6 @@ fun ProblemSelectorScreen(
 @Composable
 fun ProblemSelectorScreenPreview() {
     ProblemSelectorScreen(
-        ProblemSelectorViewModel(AlgorithmRepository())
+        ProblemSelectorViewModel(AlgorithmRepository(), AlgorithmRepository.ARRAY_CATEGORY)
     )
 }

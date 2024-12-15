@@ -29,14 +29,15 @@ fun HomeScreen(homeViewModel: HomeViewModel, navController: NavController) {
         items(
             categories.size
         ) { categoriesIndex ->
+            val categoryName = categories[categoriesIndex].name
             OutlinedButton(
                 onClick = {
-                    navController.navigate(route = Screen.Problems.route)
+                    navController.navigate(route = Screen.Problems.route + "?category=${categoryName}")
                 },
                 border = BorderStroke(1.dp, Color.LightGray),
                 shape = RoundedCornerShape(50)
             ) {
-                Text(categories[categoriesIndex].name)
+                Text(categoryName)
             }
         }
     }

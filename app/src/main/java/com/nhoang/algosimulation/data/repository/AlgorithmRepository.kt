@@ -12,7 +12,7 @@ import javax.inject.Singleton
 @Singleton
 class AlgorithmRepository @Inject constructor() {
     private val categories = listOf(
-        Category("Arrays", "Array problems", 10),
+        Category(ARRAY_CATEGORY, "Array problems", 10),
     )
 
     private val problems = mapOf(
@@ -37,7 +37,7 @@ class AlgorithmRepository @Inject constructor() {
         )
     )
 
-    fun getCategories() : Flow<List<Category>> = flow {
+    fun getCategories(): Flow<List<Category>> = flow {
         emit(categories)
     }
 
@@ -46,6 +46,6 @@ class AlgorithmRepository @Inject constructor() {
     }
 
     companion object {
-        const val ARRAY_CATEGORY = "arrays"
+        const val ARRAY_CATEGORY = "Arrays"
     }
 }
